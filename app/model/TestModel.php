@@ -4,7 +4,11 @@
 	* 	测试模型
 	*/
 	class TestModel extends Model{
+		function __construt(){
+			parent::__construt();
+		}
 		public function index(){
-			echo "TestModel is ok";
+			// echo "TestModel is ok";
+			dump($this->select('guestbook', '*'));
 		}
 	}
