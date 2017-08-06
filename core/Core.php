@@ -4,18 +4,21 @@
 	*/
 	class Core extends Common{
 		function __construct() {
-			// parent::__construct();
-			
+			parent::__construct();			
+			//解析URL获取控制器/方法
 			$this->Route = $this->library('Route');
+			$url = $this->Route->parseURL();
+			$this->ctrl = $url['ctrl'];
+			$this->action = $url['action'];
 		}
 		public function run() {
-			// spl_autoload_register(array($this, 'loadClass'));
+			//打印日志
+			$this->Log = $this->library('Log');
+			$this->Log->putLog("Access controller: $this->ctrl action: $this->action");
+			//解析路由并显示页面
 			
-			// $this->Index = $this->load('Index');
-			// $this->Index->index();
-			$url = $this->Route->parseURL();
-			$class = $this->loadCtrl($url['ctrl']);
-			$action = $url['action'];
+			$class = $this->loadCtrl($this->ctrl);
+			$action = $this->action;
 			$class->$action();
 		}
 		

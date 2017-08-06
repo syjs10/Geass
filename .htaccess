@@ -1,8 +1,6 @@
 <IfModule mod_rewrite.c>
-      RewriteEngine On
-      #确保请求路径不是文件或目录
+      RewriteEngine on
       RewriteCond %{REQUEST_FILENAME} !-f
-      RewriteCond %{REQUEST_FILENAME} !-d
-      #重定向所有请求到index.php?url=PATHNAME
-      RewriteRule ^(.*)$ index.php?url=$1 [PT, L]
-</IfMoudle>
+      RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+

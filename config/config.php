@@ -16,3 +16,6 @@
 		'charset' => 'utf8',
 	);
 	define('MEDOO', $medoo);
+	/** 日志配置 */
+	define('LOG_DRIVE', 'File');
+	define('LOG_PATH', ROOT_PATH . 'log');
