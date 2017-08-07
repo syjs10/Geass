@@ -1,16 +1,20 @@
-<?php 
+<?php
 	/**
 	* 基本模型类
 	*/
-	class Model extends \Medoo\Medoo {
+
+	class Model extends Common {
 		
 		function __construct() {
 			parent::__construct();
-			$option = MEDOO;
-			try {
-				parent::__construct($option);
-			} catch (\PDOException $e) {
-				p($e->getMessage());
-			}
+			$this->db = new Medoo\Medoo(MEDOO);
+
 		}
+		public function insert($table, $data) {
+			$error = $this->db->insert($table, $data);
+			$errorMsg = implode('  ', $error->errorInfo());
+			$Log = $this->library('Log');
+			$Log->putLog($errorMsg,'database');
+		}
+		
 	}
