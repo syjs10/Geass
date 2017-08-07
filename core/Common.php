@@ -1,12 +1,14 @@
 <?php
 	/**
 	* 常用函数类
+	* 用self::$classLoaded解决了重复加载类报错的问题
 	*/
+
 	class Common {
 		function __construct() {
-
 		}
-		
+	
+		static public $classLoaded;
 		/**
 		 * 加载控制器类
 		 * @param  [String] $class 类名
@@ -16,18 +18,24 @@
 	        // 加载控制器类
 	        $controllers = APP_PATH . 'controller/' . $class . 'Ctrl.php';
 	        $usefulCtrl = LIB_PATH . 'UsefulCtrl/' . $class . 'Ctrl.php';
+	        $className = $class . 'Ctrl';
 
-	        if (file_exists($controllers)) {
-	        	include $controllers;
-	        	$className = $class . 'Ctrl';
-				return new $className; 
-	        } elseif(file_exists($usefulCtrl)) {
-	        	include $usefulCtrl;
-	        	$className = $class . 'Ctrl';
-				return new $className; 
-	        } else {
-	        	self::show404();
+	        if (isset(self::$classLoaded[$className])) {
+				return self::$classLoaded[$className];
+	        }else{
+	        	if (file_exists($controllers)) {
+		        	include $controllers;
+					self::$classLoaded[$className] = new $className; 
+					return self::$classLoaded[$className];
+		        } elseif(file_exists($usefulCtrl)) {
+		        	include $usefulCtrl;
+					self::$classLoaded[$className] = new $className; 
+					return self::$classLoaded[$className];
+		        } else {
+		        	self::show404();
+		        }
 	        }
+	        
 
 	    }
 	    /**
@@ -38,10 +46,14 @@
 	    static function loadModel($class) {
 	        // 加载模板类
 	        $model = APP_PATH . 'model/' . $class . 'Model.php';
+	        $className = $class . 'Model';
+	        if (isset(self::$classLoaded[$className])) {
+				return self::$classLoaded[$className];
+	        }
 	        if (file_exists($model)) {
 	        	include $model;
-	        	$className = $class . 'Model';
-				return new $className;
+				self::$classLoaded[$className] = new $className; 
+				return self::$classLoaded[$className];
 	        } else {
 	        	self::show404();
 	        }
@@ -55,10 +67,16 @@
 	    static function library($class) {
 	       
 	        $lib = LIB_PATH . $class . '.php';
-	        if (file_exists($lib)) {
-	        	include $lib;
-				return new $class; 
-	        } 
+	        if (isset(self::$classLoaded[$class])) {
+				return self::$classLoaded[$class];
+	        } else {
+	        	if (file_exists($lib)) {
+		        	include $lib;
+					self::$classLoaded[$class] = new $class; 
+					return self::$classLoaded[$class];
+		        } 
+	        }
+	        
 
 	    }
 	    /**
@@ -69,9 +87,13 @@
 	    static function component($class) {
 	       
 	        $lib = ROOT_PATH . 'Component/' .$class . '.php';
+	        if (isset(self::$classLoaded[$class])) {
+				return self::$classLoaded[$class];
+	        }
 	        if (file_exists($lib)) {
 	        	include $lib;
-				return new $class; 
+				self::$classLoaded[$class] = new $class; 
+				return self::$classLoaded[$class];
 	        } 
 
 	    }
@@ -82,6 +104,9 @@
 	     */
 	    public function show404(){
 	    	echo "404";
+	    }
+	    function alert($message){
+	    	echo "<script>alert('$message')</script>";
 	    }
 	    /**
 	     * 获取访问Ip地址

@@ -10,10 +10,10 @@
 		public function index(){
 			// var_dump($data);
 			// echo"ok";
-			// $this->testModel = $this->loadModel('Test');
-			// $this->testModel->index();
+			$this->testModel = $this->loadModel('Test');
+			$this->testModel->index();
 
-			$this->view->display('index.html');
+			// $this->view->display('index.html');
 		}
 	}
 	// echo 'ok';

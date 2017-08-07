@@ -27,7 +27,9 @@
 	
 	//基本模型类
 	require LIB_PATH . 'Model.php';
-	
+	//常用函数
+	// require LIB_PATH . 'function.php';
+		
 
 	
 	$common = new Common;

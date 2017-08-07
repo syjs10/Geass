@@ -8,7 +8,7 @@
 			parent::__construct();
 			$this->Verifty = $this->component('VerifyCode');
 		}
-		public function showVerify() {
+		public function index() {
 			$this->Verifty->verifyImage(2, 4, 50, 3);
 	    }
 	}

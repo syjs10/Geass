@@ -18,8 +18,8 @@
 		 */
 		public function run() {
 			//打印日志
-			$this->Log = $this->library('Log');
-			$this->Log->putLog("Access => controller: $this->ctrl action: $this->action");
+			$Log = $this->library('Log');	
+			$Log->putLog("Access => controller: $this->ctrl action: $this->action");
 			//解析路由并显示页面
 			
 			$class = $this->loadCtrl($this->ctrl);

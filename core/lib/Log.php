@@ -11,8 +11,8 @@
 		 * @return [Object] 日志对象
 		 */
 		public function init() {
-			$this->log = $this->library('Log'.LOG_DRIVE);
-			return $this->log;
+			$logfile = $this->library('Log'.LOG_DRIVE);
+			return $logfile;
 		}
 		/**
 		 * 写入日志

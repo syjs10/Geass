@@ -9,6 +9,6 @@
 		}
 		public function index(){
 			// echo "TestModel is ok";
-			dump($this->select('guestbook', '*'));
+			dump($this->db->select('admin', '*'));
 		}
 	}
