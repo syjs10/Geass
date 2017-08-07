@@ -3,10 +3,13 @@
 	define('ROOT_PATH', __DIR__.'/');
 
 	// 开启调试模式
-	define('DEBUG', true);
+	define('DEBUG', TRUE);
 
+	//开启日志
+	define('LOG', TRUE);
+	
 	// 网站根URL
-	define('BASE_URL', 'http://localhost:1234');
+	define('BASE_URL', 'http://localhost/Geass/');
 
 	require ROOT_PATH . "vendor/autoload.php";
 

@@ -1,7 +1,6 @@
 <?php 
 	/**
 	* 路由类
-	* URL解析
 	*/
 	class Route extends Common{
 		/**

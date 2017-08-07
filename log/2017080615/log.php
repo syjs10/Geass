@@ -1,0 +1,7 @@
+2017-08-06 15:18:34 ::1 "Access => controller: Index action: index"
+2017-08-06 15:19:10 ::1 "Access => controller: Index action: index"
+2017-08-06 15:19:32 ::1 "Access => controller: Index action: index"
+2017-08-06 15:19:41 ::1 "Access => controller: Index action: index"
+2017-08-06 15:19:42 ::1 "Access => controller: Index action: index"
+2017-08-06 15:20:06 ::1 "Access => controller: Index action: index"
+2017-08-06 15:20:22 ::1 "Access => controller: Index action: index"

@@ -30,19 +30,28 @@ class __TwigTemplate_3ecf65cafc986d3b886dafa6d2008fc3fd7f03a015f0d838d28e81b539f
     {
         // line 5
         echo "\t<title>Index Page</title>
-
+\t<style>
+\t\t/*div{
+\t\t\twidth:100px;
+\t\t\theight: 300px;
+\t\t}*/
+\t</style>\t
+\t}
 ";
     }
 
-    // line 9
+    // line 15
     public function block_content($context, array $blocks = array())
     {
-        // line 10
+        // line 16
         echo "\t<p>test</p>
-\t";
-        // line 11
+\t
+\t<div>
+\t<img src=\"";
+        // line 19
         echo twig_escape_filter($this->env, ($context["base_url"] ?? null), "html", null, true);
-        echo "
+        echo "ShowVerify/showVerify\" alt=\"验证码\" style=\"\" />
+\t</div>
 ";
     }
 
@@ -58,7 +67,7 @@ class __TwigTemplate_3ecf65cafc986d3b886dafa6d2008fc3fd7f03a015f0d838d28e81b539f
 
     public function getDebugInfo()
     {
-        return array (  44 => 11,  41 => 10,  38 => 9,  32 => 5,  29 => 4,  11 => 1,);
+        return array (  52 => 19,  47 => 16,  44 => 15,  32 => 5,  29 => 4,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -68,12 +77,21 @@ class __TwigTemplate_3ecf65cafc986d3b886dafa6d2008fc3fd7f03a015f0d838d28e81b539f
 
 {% block head %}
 \t<title>Index Page</title>
-
+\t<style>
+\t\t/*div{
+\t\t\twidth:100px;
+\t\t\theight: 300px;
+\t\t}*/
+\t</style>\t
+\t}
 {% endblock %}
 
 {% block content %}
 \t<p>test</p>
-\t{{ base_url }}
+\t
+\t<div>
+\t<img src=\"{{ base_url }}ShowVerify/showVerify\" alt=\"验证码\" style=\"\" />
+\t</div>
 {% endblock %}", "index.html", "/home/syjs10/Geass/app/view/index.html");
     }
 }

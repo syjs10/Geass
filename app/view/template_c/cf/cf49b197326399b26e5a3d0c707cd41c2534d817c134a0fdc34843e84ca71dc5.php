@@ -21,7 +21,7 @@ class __TwigTemplate_db83f7b10926d73ed58bb65544d2881c6e58e49718785d13b19019397c6
         echo "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
-\t<meta charset=\"UTF-8\">
+\t<meta http-equiv=\"Content-Type\" content=\"text/html\" charset=\"UTF-8\">
 \t";
         // line 5
         $this->displayBlock('head', $context, $blocks);
@@ -67,7 +67,7 @@ class __TwigTemplate_db83f7b10926d73ed58bb65544d2881c6e58e49718785d13b19019397c6
         return new Twig_Source("<!DOCTYPE html>
 <html lang=\"en\">
 <head>
-\t<meta charset=\"UTF-8\">
+\t<meta http-equiv=\"Content-Type\" content=\"text/html\" charset=\"UTF-8\">
 \t{% block head %}
 \t{% endblock %}
 </head>

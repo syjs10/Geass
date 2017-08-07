@@ -1,2 +1,6 @@
 2017-08-06 14:32:42 ::1 "Access controller: Index action: index"
 2017-08-06 14:41:23 ::1 "Access controller: Index action: index"
+2017-08-06 14:52:01 192.168.0.101 "Access controller: Index action: index"
+2017-08-06 14:52:06 192.168.0.101 "Access controller: Index action: index"
+2017-08-06 14:58:37 192.168.0.101 "Access => controller: Index action: index"
+2017-08-06 14:59:04 192.168.0.101 "Access => controller: Index action: index"
