@@ -108,6 +108,16 @@
 	    function alert($message){
 	    	echo "<script>alert('$message')</script>";
 	    }
+	    function jump($page){
+	    	// header("location:$page");
+	    	
+	    	exit();
+
+	    }
+	    function back(){
+	    	echo "<script>history.go(-1);</script>";
+
+	    }
 	    /**
 	     * 获取访问Ip地址
 	     * @return [type] [description]

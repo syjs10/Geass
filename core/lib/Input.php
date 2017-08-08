@@ -8,13 +8,11 @@
 			 parent::__construct();
 		}
 		public function post($name = NULL) {
-			$post = array_map("addslashes", $_POST);
-			// $post= get_magic_quotes_gpc() ? $_POST : array_map("addslashes", $_POST);
+			$post=$_POST;
 			return is_null($name) ? $post : $post[$name];
 		}
 		public function get($name = NULL) {
-			// $get= get_magic_quotes_gpc() ? $_GET : addslashes($_GET);
-			// return $name ? $get : $get[$name]; 
-			return $_GET;
+			$get = $_GET;
+			return is_null($name) ? $get : $get[$name];
 		}
 	}
