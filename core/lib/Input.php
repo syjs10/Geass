@@ -8,11 +8,11 @@
 			 parent::__construct();
 		}
 		public function post($name = NULL) {
-			$post=$_POST;
-			return is_null($name) ? $post : $post[$name];
+			$post = isset($_POST) ? $_POST : array();
+			return is_null($name) ? $post : (isset($post[$name]) ? $post[$name] : NULL);
 		}
 		public function get($name = NULL) {
-			$get = $_GET;
-			return is_null($name) ? $get : $get[$name];
+			$get = isset($_GET) ? $_GET : array();
+			return is_null($name) ? $get : (isset($get[$name]) ? $get[$name] : NULL);
 		}
 	}
