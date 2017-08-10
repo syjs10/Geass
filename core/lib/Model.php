@@ -13,8 +13,14 @@
 		public function insert($table, $data) {
 			$error = $this->db->insert($table, $data);
 			$errorMsg = implode('  ', $error->errorInfo());
-			$Log = $this->library('Log');
-			$Log->putLog($errorMsg,'database');
+			if (LOG && '00000    ' != $errorMsg) {
+				$Log = $this->library('Log');
+				$Log->putLog('InsertError: ' . $errorMsg,'database');
+			}
+			
+		}
+		public function select($table, $join, $columns = NULL, $where = NULL) {
+			return $this->db->select($table, $join, $columns, $where);
 		}
 		
 	}

@@ -9,6 +9,6 @@
 			$this->Verifty = $this->component('VerifyCode');
 		}
 		public function index() {
-			$this->Verifty->verifyImage(2, 4, 50, 3);
+			$this->Verifty->verifyImage(3, 4, 50, 3);
 	    }
 	}

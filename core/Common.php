@@ -109,7 +109,7 @@
 	    	echo "<script>alert('$message')</script>";
 	    }
 	    function jump($page){
-	    	// header("location:$page");
+	    	header("location:$page");
 	    	
 	    	exit();
 

@@ -16,9 +16,7 @@
 			}
 			$this->ctrl = isset($urlArr[0]) && $urlArr[0] ? ucfirst($urlArr[0]) : 'Index';
 			$this->action = isset($urlArr[1]) && $urlArr[1] ? $urlArr[1] : 'index';
-			//打印日志
-			// $Log = $this->library('Log');	
-			// $Log->putLog("Access => controller: $this->ctrl action: $this->action");
+			
 			return array(
 				'ctrl'   => $this->ctrl,
 				'action' => $this->action,
