@@ -24,7 +24,8 @@
 			
 			$class = $this->loadCtrl($this->ctrl);
 			$action = $this->action;
-			$class->$action();
+			// 向方法中传入参数
+			call_user_func_array(array($class, $action), $this->data);
 		}
 		
 	}
