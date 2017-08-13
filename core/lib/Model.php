@@ -16,11 +16,20 @@
 			if (LOG && '00000    ' != $errorMsg) {
 				$Log = $this->library('Log');
 				$Log->putLog('InsertError: ' . $errorMsg,'database');
+				return false;
 			}
+			return true;
+
 			
 		}
 		public function select($table, $join, $columns = NULL, $where = NULL) {
 			return $this->db->select($table, $join, $columns, $where);
+		}
+		public function getByPage($table, $page, $num){
+			return self::select($table, '*', ["LIMIT"=>[($page - 1) * $num, $num]]);
+		}
+		public function count($table, $where = array()){
+			return $this->db->count($table, $where);
 		}
 		
 	}

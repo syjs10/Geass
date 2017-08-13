@@ -16,11 +16,10 @@
 			}
 			$this->ctrl = isset($urlArr[0]) && $urlArr[0] ? ucfirst($urlArr[0]) : 'Index';
 			$this->action = isset($urlArr[1]) && $urlArr[1] ? $urlArr[1] : 'index';
-			
 			return array(
 				'ctrl'   => $this->ctrl,
 				'action' => $this->action,
-				'data'   => isset($data) ? $data : array()
+				'data'   => isset($data) ? $data : array(),
 			);
 
 		}
