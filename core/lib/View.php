@@ -26,6 +26,7 @@
 		 */
 		public function display($page){
 			$this->assign('base_url', BASE_URL);
+			$this->assign('source_url', BASE_URL . 'app/view/');
 			$this->twig->display($page, $this->assign);
 		}
 	}

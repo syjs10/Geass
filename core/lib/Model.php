@@ -31,5 +31,8 @@
 		public function count($table, $where = array()){
 			return $this->db->count($table, $where);
 		}
+		public function update($table, $data, $where = null){
+			return $this->db->update($table, $data, $where);
+		}
 		
 	}
