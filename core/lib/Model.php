@@ -11,28 +11,36 @@
 
 		}
 		public function insert($table, $data) {
-			$error = $this->db->insert($table, $data);
-			$errorMsg = implode('  ', $error->errorInfo());
-			if (LOG && '00000    ' != $errorMsg) {
-				$Log = $this->library('Log');
-				$Log->putLog('InsertError: ' . $errorMsg,'database');
-				return false;
-			}
-			return true;
+			$res = $this->db->insert($table, $data);
+			$Log = $this->library('Log');
+			$Log->putLog($res,'database');
+			return $res;
 
 			
 		}
 		public function select($table, $join, $columns = NULL, $where = NULL) {
-			return $this->db->select($table, $join, $columns, $where);
+			$res = $this->db->select($table, $join, $columns, $where);
+			$Log = $this->library('Log');
+			$Log->putLog($res,'database');
+			return $res;
 		}
 		public function getByPage($table, $page, $num){
-			return self::select($table, '*', ["LIMIT"=>[($page - 1) * $num, $num]]);
+			$res = self::select($table, '*', ["LIMIT"=>[($page - 1) * $num, $num]]);
+			$Log = $this->library('Log');
+			$Log->putLog($res,'database');
+			return $res;
 		}
 		public function count($table, $where = array()){
-			return $this->db->count($table, $where);
+			$res = $this->db->count($table, $where);
+			$Log = $this->library('Log');
+			$Log->putLog($res,'database');
+			return $res;
 		}
 		public function update($table, $data, $where = null){
-			return $this->db->update($table, $data, $where);
+			$res = $this->db->update($table, $data, $where);
+			$Log = $this->library('Log');
+			$Log->putLog($res,'database');
+			return $res;
 		}
 		
 	}
