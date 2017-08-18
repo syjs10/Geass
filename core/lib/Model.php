@@ -30,8 +30,8 @@
 			$Log->putLog($res,'database');
 			return $res;
 		}
-		public function count($table, $where = array()){
-			$res = $this->db->count($table, $where);
+		public function count($table, $join = null, $column = NULL, $where = NULL){
+			$res = $this->db->count($table, $join, $column, $where);
 			$Log = $this->library('Log');
 			$Log->putLog($res,'database');
 			return $res;
