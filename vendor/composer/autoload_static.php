@@ -70,6 +70,13 @@ class ComposerStaticInit51bff9ee4b7168a3b8df7120429f0ecf
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
+        'P' => 
+        array (
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
