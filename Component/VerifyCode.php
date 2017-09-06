@@ -20,7 +20,7 @@ class VerifyCode {
 		$chars = str_shuffle($chars);
 		return substr($chars, 0, $length);
 	}
-	public function verifyImage( $type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name="verify"){
+	public function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name="verify"){
 
 		$width = 80;
 		$height = 28;
