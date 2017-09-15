@@ -42,6 +42,13 @@
             $Log->putLog($res,'database');
             return $res;
         }
+        /**
+         * 记录分页
+         * @param  String $table 表名
+         * @param  int    $page  页码
+         * @param  int    $num   每页记录数
+         * @return [type]        是否成功
+         */
         public function getByPage($table, $page, $num)
         {
             $res = self::select($table, '*', ["LIMIT"=>[($page - 1) * $num, $num]]);
@@ -49,6 +56,14 @@
             $Log->putLog($res,'database');
             return $res;
         }
+        /**
+         * 记录条数
+         * @param  String $table   表名
+         * @param  String $join    需要加入表名
+         * @param  String $columns 列名
+         * @param  Array  $where   条件
+         * @return [type]          是否成功
+         */
         public function count($table, $join = null, $column = NULL, $where = NULL)
         {
             $res = $this->db->count($table, $join, $column, $where);
@@ -56,6 +71,13 @@
             $Log->putLog($res,'database');
             return $res;
         }
+        /**
+         * 更新记录
+         * @param  String $table   表名
+         * @param  Array  $data    数据
+         * @param  Array  $where   条件
+         * @return [type]          是否成功
+         */
         public function update($table, $data, $where = null)
         {
             $res = $this->db->update($table, $data, $where);
